@@ -5,11 +5,11 @@
 # KPIit is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
-FROM python:3.6
+FROM cern/cc7-base:20180516
 
-RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install -y git curl vim
-RUN pip install --upgrade setuptools wheel pip
+RUN yum update -y && yum upgrade -y
+RUN yum install -y git curl python34-pip cern-get-sso-cookie
+RUN pip3 install --upgrade setuptools wheel pip
 
 # Install KPIit
 ENV WORKING_DIR=/opt/kpiit
